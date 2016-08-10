@@ -1,0 +1,9 @@
+baseurl = "https://yanzay.com/"
+languageCode = "ru-ru"
+theme = "hyde"
+title = "Yanzay"
+PygmentsCodeFences = true
+[params]
+  description = "Tech blog"
+[taxonomies]
+  tag = "tags"

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Microservices without frameworks</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Microservices without Frameworks</h2>
+					<p>
+						<small> <a href="https://github.com/yanzay">Alexey Grachov</a> / <a href="http://twitter.com/yanzay">@yanzay</a></small>
+					</p>
+					<p><a href="https://yanzay.com/lviv">https://yanzay.com/lviv</a></p>
+					<p><a href="https://github.com/yanzay/lviv-meetup">https://github.com/yanzay/lviv-meetup</a></p>
+				</section>
+
+				<section>
+					<h3>Agenda</h3>
+					<ul>
+						<li>Why microservices?</li>
+						<li>Simplest microservice</li>
+						<li>Example: products service</li>
+						<li>Interaction</li>
+						<li>Deployment</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="what.png" />
+				</section>
+
+				<section>
+					<h3>Why Microservices?</h3>
+					<ul>
+						<li class="fragment">Language agnostic</li>
+						<li class="fragment">Independently developable</li>
+						<li class="fragment">Independently deployable</li>
+						<li class="fragment">Independently scalable</li>
+						<li class="fragment">Persistence polyglot</li>
+						<li class="fragment">Easy to build</li>
+						<li class="fragment">Easy to test</li>
+						<li class="fragment">Easy to deploy</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="monolithic.png" />
+				</section>
+
+				<section>
+					<p>
+						A little copying is better than a little dependency
+					</p>
+					<p>
+						<small><a href="http://go-proverbs.github.io/">Go Proverbs</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Simplest microservice</h3>
+					<pre><code data-trim data-noescape>
+package main
+
+import (
+	"net/http"
+)
+
+func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":4200", nil)
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	response := `{"status": "awesome"}`
+	w.Write([]byte(response))
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<img src="shop.png" />
+				</section>
+
+				<section>
+					<h2>Products Service</h2>
+				</section>
+
+				<section>
+					<h2>Middlewares</h2>
+				</section>
+
+				<section>
+					<h2>Interaction</h2>
+					<ul>
+						<li class="fragment">JSON</li>
+						<li class="fragment">Protobuf</li>
+						<li class="fragment">Avro</li>
+						<li class="fragment">etc...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>JSON</h2>
+					<p class="fragment">Good enough: encoding/json</p>
+					<p class="fragment">Faster: pquerna/ffjson</p>
+				</section>
+
+				<section>
+					<h2>Protobuf</h2>
+					<p class="fragment">Good enough: golang/protobuf</p>
+					<p class="fragment">With Gadgets: gogo/protobuf</p>
+				</section>
+
+				<section>
+					<h2>Avro</h2>
+					<p class="fragment">Best: elodina/go-avro</p>
+					<p class="fragment">Another one: linkedin/goavro</p>
+				</section>
+
+				<section>
+					<h2>Deployment</h2>
+				</section>
+
+				<section>
+					<img src="spaghetti.png" />
+				</section>
+
+				<section>
+					<img src="docker-friends.png" />
+				</section>
+
+				<section>
+					<h2>Docker Infrastructure</h2>
+					<ul>
+						<li class="fragment">Docker Engine</li>
+						<li class="fragment">Docker Compose</li>
+						<li class="fragment">Docker Swarm</li>
+						<li class="fragment">Docker Machine</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Dockerfile</h2>
+					<pre><code data-trim data-noescape>
+FROM alpine
+
+COPY golem /
+
+CMD /golem -db $DB
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Docker Compose</h2>
+					<pre><code data-trim data-noescape>
+nginx:
+  image: nginx
+  links:
+    - golem
+    - reaction
+postgres:
+  image: postgres
+  volumes:
+    - ./data:/var/lib/postgresql/data
+golem:
+  build: ./golem
+  environment:
+    DB: "postgres://postgres@postgres/postgres?sslmode=disable"
+  links:
+    - postgres
+reaction:
+  image: yanzay/reaction
+  links:
+    - golem
+  ports:
+    - "4200:4200"
+					</code></pre>
+				</section>
+
+				<section>
+					<p>docker-compose up</p>
+				</section>
+
+				<section>
+					<img src="happiness.jpg" />
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>Questions?</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

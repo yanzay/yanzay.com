@@ -1,0 +1,13 @@
+addons:
+  ssh_known_hosts: 188.166.95.113
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f0aa0b639c80_key -iv $encrypted_f0aa0b639c80_iv
+    -in deploy_rsa.enc -out deploy_rsa -d
+install:
+  - curl -L https://github.com/spf13/hugo/releases/download/v0.16/hugo_0.16_linux-32bit.tgz | tar -xz
+script:
+  - "./hugo"
+  - eval "$(ssh-agent -s)"
+  - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
+  - ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
+  - rsync -r ./public/* core@188.166.95.113:~/www/yanzay.com/
