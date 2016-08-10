@@ -1,3 +1,6 @@
+language: python
+python:
+  - "3.5"
 addons:
   ssh_known_hosts: 188.166.95.113
 before_install:
@@ -5,6 +8,7 @@ before_install:
     -in deploy_rsa.enc -out deploy_rsa -d
 install:
   - curl -L https://github.com/spf13/hugo/releases/download/v0.16/hugo_0.16_linux-32bit.tgz | tar -xz
+  - pip install Pygments
 script:
   - "./hugo"
   - eval "$(ssh-agent -s)"
