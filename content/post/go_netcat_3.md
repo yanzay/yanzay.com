@@ -121,7 +121,7 @@ func processClient(conn io.ReadWriteCloser, command bool, fileServer bool) error
 }
 ```
 
-Как вы уже поняли, основную работу на сервере выполняют функции `commandProcessor`, `fileProcessor` и `defaultProcessor`. Полный исходный код можно посмотреть на гитхабе, а вот нам сейчас интересно именно получение и сохранение файлика:
+Как вы уже поняли, основную работу на сервере выполняют функции `commandProcessor`, `fileProcessor` и `defaultProcessor`. Полный исходный код можно посмотреть на [гитхабе](https://github.com/yanzay/netcat/tree/v0.1.1), а вот нам сейчас интересно именно получение и сохранение файлика:
 
 ```go
 // чем глубже в код, тем меньше интерфейсы
@@ -215,4 +215,4 @@ func uploadFile(name string, conn io.WriteCloser, file io.ReadCloser) error {
 }
 ```
 
-Вот и всё, полностью работоспособный мини-netcat готов! Полный код [здесь](https://github.com/yanzay/netcat) -- пишите комментарии, присылайте пулл-реквесты.
+Вот и всё, полностью работоспособный мини-netcat готов! Полный код [здесь](https://github.com/yanzay/netcat/tree/v0.1.1) -- пишите комментарии, присылайте пулл-реквесты.
