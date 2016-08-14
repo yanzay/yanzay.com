@@ -5,6 +5,11 @@
       <p class="lead">
       {{ .Site.Params.description }}
       </p>
+      <p>
+        {{ with .Site.Params.githubURL }}<a href="{{ . }}"><i class="fa fa-github-square fa-2x"></i></a>{{ end }}
+        {{ with .Site.Params.facebookURL }}<a href="{{ . }}"><i class="fa fa-facebook-square fa-2x"></i></a>{{ end }}
+        {{ with .Site.Params.twitterURL }}<a href="{{ . }}"><i class="fa fa-twitter-square fa-2x"></i></a>{{ end }}
+      </p>
     </div>
 
     <ul class="sidebar-nav">

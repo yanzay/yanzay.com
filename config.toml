@@ -5,5 +5,8 @@ title = "Yanzay"
 PygmentsCodeFences = true
 [params]
   description = "Tech blog"
+  githubURL = "https://github.com/yanzay"
+  facebookURL = "https://www.facebook.com/profile.php?id=100001474968209"
+  twitterURL = "https://twitter.com/yanzay"
 [taxonomies]
   tag = "tags"
