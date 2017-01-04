@@ -16,6 +16,9 @@
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | html }}</description>
       <enclosure url="{{ .Params.enclosureUrl }}" length="{{ .Params.enclosureLength }}" type="audio/mpeg" />
+      <itunes:summary>
+        {{ .Summary | html }}
+      </itunes:summary>
     </item>
     {{ end }}
   </channel>
