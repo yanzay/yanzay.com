@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/yanzay
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://yanzay.com
+  * I am yanzay (https://keybase.io/yanzay) on keybase.
+  * I have a public key with fingerprint 984A E7C1 47E3 9A2A 08E6  2B2B C821 E9DD 0B55 9E16
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101dc731e0442bf44b45d09d2d00a1fbb645ce090beae460eb5ce721264c9899d2e0a",
+            "fingerprint": "984ae7c147e39a2a08e62b2bc821e9dd0b559e16",
+            "host": "keybase.io",
+            "key_id": "c821e9dd0b559e16",
+            "kid": "0101dc731e0442bf44b45d09d2d00a1fbb645ce090beae460eb5ce721264c9899d2e0a",
+            "uid": "20cec220174d89c698b36c7b2b2ecf19",
+            "username": "yanzay"
+        },
+        "service": {
+            "hostname": "yanzay.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1493160077,
+    "expire_in": 157680000,
+    "prev": "527745d2532e769bfa92beed56f15e47b624f47249a11dfe6b85d7e741e55ead",
+    "seqno": 12,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.68
+Comment: https://keybase.io/crypto
+
+yMM/AnicrVJrUFRlGN5FICQTChQDheE4gdMQnu/bc13HZmECB4mY0i4ItnMu31kO
+wu6yF2AF3BSY8TKmeMWCLTALio364Q2QgNgiBQe1m8PIRdRgEGjsghph5zD1o5l+
+9v355n2+53m+533n7XlikSZY2xs7cePxVz3LtZe6jjg1bzwa2F+K8RbRhelLsW1o
+4UL5IrI7jNtkEdNjOMCBKNA6gHCCgLxEEDxBijgrQhHHOSDxPEWQAsJZnEccIigc
+8UpJQwApQmAZViEinMMSMEk2m5DNapPNDsWWZQgO0QIgaKRjOcjhDKIgD3mBgQCx
+oojzJMkiQCnCXItdVSjheM6OEmWLgimFcSHef/D/59zOBTuIC0iAEAc0ITKsQLEM
+r6MEWkkMkSABViXakc3MFSCF7eLM2zkXVp6AKViRLCB1rGof/3pPFCwFis5qszgs
+giVfwXMdDqtdr+ocLqtKLEa88W8LIy+bRWWGiqII2eyyxYzpgcIUHLLqCQhWBygc
+p+kEDJVYZRsyyiqDpCkGV476DypSLElI08okIKmDiKZYXuJYyCMkkpQESETQPAUJ
+iaAhwXIAiBKieIYUaUQTAJEk4kRMbarQbFG8oZKTMymedtlk5hxOG8LKu7ty/DXa
+YE1ggJ+6XJrgxaH/rNy0O1TT8xJ79JnEoMN7O5/K6nPcFUK/mNozumGO+XJ+Z1mQ
+1nSsbrazMHqvX/vo6PzAyKljfZZXYsPcrubKT2e15wq2dJn1NRnDfTOxa0wRD2Ic
+uYVrL2XD7EpNx4HkpKo3dyfXncZbK/RDIXG1J+fex/0+jJi5nvNJhKG7wXfzxclq
+b5kUNdy+ka+Nz1189J1nk68ZbutO+OgL9alrVt4LmOypdJ6br6uY2pGQRR0+YUgd
+Seq+4r3SGzb9/es5k4bsW78GBt3PBL+UXL261XpjyH1/XXrjRzrPSMi9TDssq1ie
+teThuLC05cnwzdtbIpPdB9czu2Kp4vPR/SVhBzo+6BzL2zHNPNSu8q+tksMHcjyh
+LzR7U3bnWd9+K5/5LRZWx/S2HTy1sjX+8orUeOn8N3UN+Qlg2ZDh4nemYeuuVVGb
+PGu9d62ZSbYNUx3BxWHhl1vS9Y/FrTfWNz2q+nPZluMjn7sCnl7UFTXu9E8D+uKG
+Ju9Xnq2r4xpD1vX7DxbNjiW6A26+t1Nfe+azNu9rQ+7VNVPRnq99h7rEgNaTGeD5
+vCUxbZGRKS//eOfjsxvTfORzPl952tkVpS0X8/b8UHRotiTqpz+uDZ5Jn3HGjds6
+GkFzNB+P9p9O/3lpSg13a65pPLpi05EJKeT4neqysMDBamtd/b72CcOFiAf91zeP
+ZXx7+/d9KH7k3d7qvwCjZMGl
+=oiRB
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/yanzay
+
+==================================================================
+
